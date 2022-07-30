@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fun2</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#btn1").click(function(){
+                //使用remove删除父和子所有的dom对象
+                $("select").remove();
+            })
+
+            $("#btn2").click(function(){
+                //使用empty删除子对象
+                $("select").empty();
+            })
+
+            $("#btn3").click(function(){
+                //使用append增加dom对象
+                $("#father").append("<input type='button' value='我是增加的按钮'>");
+
+                //增加一个table
+                $("#father").append("<table id='innerTalbe' style='border-width:1px; border-color:red'><tr><td>一行一列</td><td>一行二列</td><td>一行三列</td></tr></table>")
+            })
+
+            $("#btn4").click(function(){
+                //使用html函数,获取数组中第一个dom对象的文本值（innerHTML）
+                //alert($("span").text());  //我是mysql数据库，这个只输出文本内容
+                alert($("span").html());    //我是<b>mysql数据库</b> ,标签还在，原样是什么就是什么
+            })
+
+            $("#btn5").click(function(){
+                //使用html函数（有参数），设置dom对象的文本值
+                $("span").html("我是新的<b>数据</b>");  //其中的标签是会起作用的 我是新的数据（数据两个字加粗了）
+            })
+
+            $("#btn6").click(function(){
+                //循环普通数组，非dom数组
+                var arr = [1, 2, 3];
+                //$.each(待遍历的对象，处理函数function)，$.each方法两个参数，遍历过程中调用传进去的function对obj进行处理，
+                //function也有两个参数，index和element，index就是下标，element是下标对应的元素，有几个元素就执行几次
+                $.each(arr, function(index, element){
+                    alert("循环变量" + index + "=======" + "数组成员" + element);                                      
+                })
+            })
+
+            $("#btn7").click(function(){
+                //循环json
+                var json = {"name":"zhangsan","age":20};
+                $.each(json,function(i,n){
+                    alert("i是key:" + i + ",n是value:" + n);
+                })
+            })
+
+            $("#btn8").click(function(){
+                //循环dom数组
+                var domArray = $(":text"); //dom数组
+
+                $.each(domArray,function(index, domObj){
+                    alert("index:" + index + ",value:" + domObj.value);
+                })
+            })
+
+            $("#btn9").click(function(){
+                //循环jquery数组对象的另外一种写法
+                //这和上面的写法效果相同
+                $(":text").each(function(index, domObj){
+                    alert("index:" + index + ",value:" + domObj.value); 
+                })
+
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+
+    <input type="text" value="text1">
+    <input type="text" value="text2">
+    <input type="text" value="text3">
+
+    <select>
+        <option value="老虎">老虎</option>
+        <option value="狮子">狮子</option>
+        <option value="豹子">豹子</option>
+    </select>    
+    <br>
+    <br>
+    <select>
+        <option value="亚洲">亚洲</option>
+        <option value="欧洲">欧洲</option>
+        <option value="美洲">美洲</option>
+    </select>
+
+    <span>我是<b>mysql数据库</b></span>
+    <br>
+    <br>
+    <div id="father">我是第一个div</div>
+    <br>
+    <input type="button" value="使用remove删除父和子对象" id="btn1">
+    <br>
+    <input type="button" value="使用empty删除子对象" id="btn2">
+    <br>
+    <input type="button" value="使用append增加dom对象" id="btn3">
+    <br>
+    <input type="button" value="使用html函数,获取数组中第一个dom对象的文本值（innerHTML）" id="btn4">
+    <br>
+    <input type="button" value="使用html函数（有参数），设置dom对象的文本值" id="btn5">
+    <br>
+    <input type="button" value="循环普通数组，非dom数组" id="btn6">  
+    <br>
+    <input type="button" value="循环json" id="btn7">
+    <br>
+    <input type="button" value="循环dom数组" id="btn8">
+    <br>
+    <input type="butotn" value="循环jquery数组对象的另外一种写法" id="btn9">
+</body>
+</html>

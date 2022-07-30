@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#btn1").click(function(){
+                //$(":text")表单属性选择器，其实有无表单都能使用，关键在于有无type属性，有才能用
+                //val() 获取dom数组中第一个dom对象的value属性值
+                var value = $(":text").val();
+                alert(value);
+            })
+
+            $("#btn2").click(function(){
+                //设置所有的text的value为新值,会全部进行更新
+                var textValue = $(":text").val("沾灰你妈死了");
+            })
+
+            $("#btn3").click(function(){
+                //获取div，text()无参数，获取dom对象的文本值，连接成一个字符串
+                var divValue = $("div").text();
+                alert(divValue);
+            })
+
+            $("#btn4").click(function(){
+                //设置div的文本值
+                var modifyValue = $("div").text("沾灰你妈死了");
+            })
+
+            $("#btn5").click(function(){
+                //读取指定属性的值
+                alert($("#image1").attr("src"));
+            })
+
+            $("#btn6").click(function(){
+                //设置指定属性的值
+                $("#image1").attr("src","img/wallhaven-3zgz2y.png");
+            })
+
+            $("#btn7").click(function(){
+                //弹窗显示沾灰尼玛死了
+                alert("沾灰你妈死了，张浩民尼玛也死了");
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <input type="text" value="刘备">
+    <br>
+    <input type="text" value="张飞">
+    <br>
+    <input type="text" value="关羽">
+    <br>
+    <div>我是第一个div</div>
+    <br>
+    <div>我是第二个div</div>
+    <br>
+    <div>我是第三个div</div>
+    <br>
+    <img src="img/wallhaven-rdwjj7.jpg" id="image1">
+    <img src="img/wallhaven-3zgz2y.png" id="image2">
+    <br>
+
+    <input type="button" value="获取第一个文本框的值" id="btn1">
+    <br>
+    <input type="button" value="设置所有text的value为新值" id="btn2">
+    <br>
+    <input type="button" value="获取div的所有文本值" id="btn3">
+    <br>
+    <input type="button" value="设置div的文本值" id="btn4">
+    <br>
+    <input type="button" value="读取指定属性的值" id="btn5">
+    <br>
+    <input type="button" value="设置指定属性的值" id="btn6">
+    <br>
+    <input type="button" value="弹窗显示-沾灰尼玛死了" id="btn7">
+    <br>
+    
+
+</body>
+</html>

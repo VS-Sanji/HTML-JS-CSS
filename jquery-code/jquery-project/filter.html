@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器</title>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+		//页面加载完毕后执行funciton函数，相当于$(document).ready(function(){})
+			$(function(){
+				//当页面dom对象加载后，给对象绑定事件，因为此时button已经在内存中创建好了，才能使用
+				$("#btn1").click(function(){
+					//过滤器
+					var obj = $("div:first");
+					obj.css("background","red");
+				})
+				
+				$("#btn2").click(function(){
+					//过滤器
+					var obj = $("div:last");
+					obj.css("background","yellow");
+				})
+				
+				$("#btn3").click(function(){
+					//过滤器
+					var obj = $("div:eq(3)");
+					obj.css("background","green");
+				})
+				
+				$("#btn4").click(function(){
+					//过滤器
+					var obj = $("div:lt(3)");
+					obj.css("background","orange");
+				})
+				
+				$("#btn5").click(function(){
+					//过滤器
+					var obj = $("div:gt(3)");
+					obj.css("background","green");
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="one">我是div-0</div>
+		<div id="two">我是div-1</div>
+		<div>我是div-2
+			<div>我是div-3</div>
+			<div>我是div-4</div>
+		</div>
+		<div>我是div-5</div>
+		<br />
+		<span>我是span</span>
+		
+		<input type="button" value="获取第一个div" id="btn1" />
+		<br />
+		<input type="button" value="获取最后一个div" id="btn2" />
+		<br />
+		<input type="button" value="获取下标等于3的div" id="btn3" />
+		<br />
+		<input type="button" value="获取下标小于3的div" id="btn4" />
+		<br />
+		<input type="button" value="获取下标大于3的div" id="btn5" />
+	</body>
+</html>

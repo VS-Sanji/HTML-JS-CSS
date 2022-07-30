@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on绑定事件</title>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        //在dom对象加载好后，绑定事件
+        $(function(){
+            $("#btn1").click(function(){
+                //使用append增加dom对象
+                $("#mydiv").append("<button id='newBtn' value='新增的按钮'>");
+                //使用on()给新增的按钮绑定事件
+                $("#newBtn").on("click",function(){
+                    alert("新增的按钮被单击了");
+                })
+            })
+        })
+        $(function(){
+            $("#btn1").click(function(){
+                //使用append增加dom对象
+                $("#mydiv1").append("<button id='newbtn2' value='新增按钮'>");
+            })
+                
+        })
+    </script>
+
+
+</head>
+<body>
+    
+    <div id="mydiv">
+        我是一个div，需要增加一个button
+    </div>
+    <br>
+    <div id="mydiv1">
+        我是一个div，需要增加一个button
+    </div>
+    <br>
+
+    <input type="button" value="给div增加一个button按钮" id="btn1">
+
+</body>
+</html>

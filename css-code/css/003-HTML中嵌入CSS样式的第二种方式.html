@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML中嵌入CSS样式的第二种方式：定义内部样式块对象</title>
+		
+		<!--样式块对象-->
+		<style type="text/css">
+			/* 这是CSS的注释，快捷键 CTRL + / */
+			/* 设置id="mydiv"元素的宽度高度和背景色 */
+			/* 
+				设置某个元素的样式，首先需要选中这个元素，如何选中一个或多个元素呢？
+					常见的选择元素的方式有三种：（这里说的是常见的）
+						id选择器
+						标签选择器
+						类选择器
+			*/
+			
+			/* 关于id选择器的使用 #+id {}*/
+			/* id选择器的优先级比标签选择器高*/
+			/* id选择器只能将样式作用于当前页面中的某一个节点，因为id是不能重复的 */
+			#mydiv {
+				width:300px;
+				height:400px;
+				background-color: darkorange;
+			}
+
+			#email{
+				border-color: #FF8C00;
+				border-style: solid;
+				border-width: 2px;
+			}
+			
+			
+			/* 标签选择器 */
+			/* 作用域:当前页面中所有的input元素 */
+			input {
+				width: 300px;
+				height: 30px;
+				/* 
+				border-color: #FF8C00;
+				border-style: solid;
+				border-width: 2px;
+				*/
+				
+				/* 可以使用总样式 */
+				/* border: 2px solid blue; */
+				border: 2px blue solid;
+			}
+			
+			/* 类选择器 */
+			.student{
+				width: 300px;
+				height: 30px;
+				background-color: aqua;
+			}
+		</style>
+
+		<!-- <style type="text/css">
+			#mydiv{
+
+			}
+
+			input{
+
+			}
+
+			.student{
+
+			}
+		</style> -->
+		
+	</head>
+	
+	<body>
+		<div id="mydiv"></div>
+		
+		用户名<input type="text" name="username" />
+		<br />
+		密码<input type="password" namepassword="password" />
+		<br />
+		<!--这个电子邮箱的样式被id选择器修饰，优先级高，所有和上面两个不一样-->
+		电子邮箱：<input id="email" type="text" />
+		<br />
+		<br />
+		
+		<!--在HTML中，任何一个节点元素都有class属性，用来指定标签类名-->
+		<!--以下虽然标签是不同的，但是它们都属于同一类，因为它们的类名相同-->
+		
+		<input class="student" type="text" />
+		<br />
+		<input class="student" type="text" />
+		<br />
+		<div class="student">3</div>
+	</body>
+</html>

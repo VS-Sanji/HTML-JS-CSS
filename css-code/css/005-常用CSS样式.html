@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常用CSS样式</title>
+		
+		<!--样式块-->
+		<style type="text/css">
+			.citys{
+				/* 隐藏，不显示出来 */
+				display: block;
+				/* 
+					display样式
+						1.属于布局样式
+						2.用来设置显示或者隐藏
+						3.隐藏：none
+						4.显示：block或者inline-block
+								block：以块的形式展现，并且独自占用一行
+								inline-block：以块的形式展现，但不会独自占用一行
+				*/
+				
+			}
+			
+			.country{
+				/* 列表样式类型取消 */
+				/* 不显示前面的标记符号 */
+				list-style-type: none;
+			}
+			
+			
+			#nameError{
+				font-size: medium;
+				color: crimson;
+				
+			}
+			
+			.baidu{
+				/* none表示修饰的没有下划线 */
+				/* underline下划线 */
+				text-decoration: underline;
+				
+			}
+			
+			/* :hover是专门用来设置鼠标悬停效果的
+				当鼠标悬停的时候，执行样式，当鼠标离开的时候样式取消
+				注意：在使用hover的时候，：（冒号）的两边不能有空格
+			*/
+			#shubiao:hover{
+				color: #DC143C;
+				cursor: pointer;
+				
+			}
+			
+			.mydiv{
+				width: 200px;
+				height: 200px;
+				background-color: gray;
+				border: 1px #00FFFF solid;
+				/* 外补丁，在元素外面打补丁，会导致元素的移动，例如在上方打补丁，会导致下移 */
+				/* 往下移动100个像素 */
+				margin-top: 100px;
+				/* 往右移动50个像素 */
+				margin-left: 50px;
+				
+				/* 内补丁，在元素里面打补丁，会导致元素的增大或缩小 */
+				/* 往左打100像素补丁，往左边扩展了 */
+				padding-left: 100px;
+			}
+			
+			#outdiv{
+				width: 300px;
+				height: 300px;
+				background-color: #0000FF;
+				float: right;
+			}
+			
+			/* float样式是用来设置当前元素在父元素当中的浮动效果 */
+			#innerdiv{
+				width: 100px;
+				height: 100px;
+				background-color: #DC143C;
+				/* 设置当前节点元素的浮动效果，只是浮动于当前元素的父元素内部 */
+				float: left;
+			}
+			
+			#div2{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				/* 绝对定位 */
+				position: absolute;
+				top: 11px;
+				left: 323px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--绝对定位-->
+		<div id="div2"></div>
+		
+		<!--内补丁，外补丁-->
+		<div class="mydiv">我是一个div小方块</div>
+		
+		
+		<!--设置鼠标悬停效果-->
+		<!--鼠标移动到以下文本上，希望字体颜色变成红色，鼠标变成小手-->
+		<span id="shubiao">沾灰你妈死了</span>
+		
+		<!--无序列表-->
+		<ul class="country">
+			<li>中国
+				<ul class="citys">
+					<li>杭州</li>
+					<li>苏州</li>
+					<li>南京</li>
+				</ul>
+			</li>
+			<li>美国
+				<ul class="citys">
+					<li>纽约</li>
+					<li>加州</li>
+					<li>德州</li>
+				</ul>
+			</li>
+			<li>日本
+				<ul>
+					<li>北海道</li>
+					<li>东京</li>
+					<li>大阪</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<!--字体样式-->
+		<span id="nameError">用户名不能为空</span>
+		<br />
+		
+		<!--文本装饰-->
+		<a href="http://www.baidu.com" class="baidu"><span id="shubiao">百度</span></a>
+		
+		<!--浮动效果的样式-->
+		<!--外部div-->
+		<div id="outdiv">
+			<!--内部div-->
+			<div id="innerdiv">
+				
+			</div>
+		</div>
+		
+		
+		
+	</body>
+</html>

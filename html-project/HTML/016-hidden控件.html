@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>hidden控件</title>
+	</head>
+	<body>
+		<!--form有method属性，两个值，get和post，默认是get。当为get时，向服务器发送时会将数据显示在地址栏上，post则不会-->
+		<form action="http://localhost:8080/oa/save" method="post"><!--post表示提交数据时在地址栏上不显示数据内容-->
+			<!--隐藏域：网页上看不到，但是表单提交的时候数据会自动提交给服务器-->
+			<input type="hidden" name="userid" value="111" />
+			
+			用户代码<input type="text" name="usercode" />
+			
+			<input type="submit" value="提交" />
+		</form>
+	</body>
+</html>
