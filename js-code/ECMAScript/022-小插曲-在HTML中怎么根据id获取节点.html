@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>在HTML中怎么根据id获取节点</title>
+	</head>
+	<body>
+		
+		<input type="button" id="mybtn" value="按钮" />
+		
+		<script type="text/javascript">
+			// 根据id获取元素/节点对象
+			// 在JS当中有一个内置的隐含对象叫做：document
+			// document代表整个HTML文档
+			// 在JS当中有一个内置的隐含的对象叫做：window
+			// window代表整个浏览器窗口
+			// window对象是BOM的顶级对象，BOM中的老大，BOM编程是对浏览器本身操作：如前进、后退、地址栏、关闭窗口等
+			// docement对象是DOM的顶级对象，DOM中的老大，DOM编程是通过JS对HTML中的dom节点进行操作
+			// 严格意义上来说，window是包含document的
+			
+			var mybtnElt = document.getElementById("mybtn");
+			
+			console.log(mybtnElt);
+		
+			//重点：在JS当中，当你获取了一个节点之后，这个节点中有什么属性就可以 “点” 什么
+			//可以通过这种形式修改属性
+			mybtnElt.type = "textarea";
+			mybtnElt.value = "anniu";
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

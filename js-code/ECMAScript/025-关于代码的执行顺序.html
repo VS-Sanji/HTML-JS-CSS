@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于代码的执行顺序</title>
+	</head>
+	<!-- <body onload="pageload()" 这个引号内的代码（这里是函数）需要在 加载事件load发生之后执行，
+			而当load事件执行完毕的时候，元素已经加载完毕了，所以是可以拿到元素的-->
+	<body onload="pageload()">
+		<script type="text/javascript">
+			function pageload(){
+				// 页面加载完毕之后才会执行这里的代码，此时id=“btn”的元素已经加载到浏览器内存了
+				var btnElt = document.getElementById("btn")
+				btnElt.onclick = function(){
+					alert("按钮被点击了，匿名函数执行")
+				}
+			}
+		
+		
+		</script>
+		
+		<input type="button" id="btn" value="hello"/>
+		
+	</body>
+</html>

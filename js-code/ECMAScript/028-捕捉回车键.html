@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>捕捉回车键</title>
+
+		<script type="text/javascript">
+			window.onload = function(){
+				//回车键的键值：13
+				//ESC键值：27
+				//对于键盘事件对象来说，都有keyCode属性用来获取键值
+				
+				var usernameElt = document.getElementById("username");
+				//发生的每个事件都会作为参数传递给对应的回调函数，但是我们不在回调函数中声明参数的话，在函数内我们就无法对这个事件进行相关的操作
+				//这里我们声明一个参数，等会键盘按下事件发生了，这个参数变量就会用来接收它，然后我们在函数体内就可以获取事件相关内容
+				usernameElt.onkeydown = function(event){
+					//获取键值
+					var i = event.keyCode;
+					if(i === 13){
+						alert("正在进行验证...");
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="username">
+	</body>
+</html>

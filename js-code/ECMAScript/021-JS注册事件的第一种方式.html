@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS注册事件的第一种方式</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function sayHello(){
+				console.log('hello jack');
+			}
+		
+		</script>
+		
+		<!-- 这种注册事件的方式就是第一种方式：在标签中使用 “事件句柄” ，在事件句柄后面编写JS代码
+			当这个事件句柄对应的事件发生之后，“注册”在事件句柄中的这个代码被监听器调用
+			
+			onclick 鼠标单击的事件句柄，只有当鼠标单击事件click发生之后，注册在onclick后面的代码会被执行
+		-->
+		
+		<input type="button" value="hello jack" onclick="sayHello()" />
+		
+	</body>
+</html>

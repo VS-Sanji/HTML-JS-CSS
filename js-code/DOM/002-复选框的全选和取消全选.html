@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>复选框的全选和取消全选</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				
+				// 通过id获取第一个复选框对象
+				// var firstChk = document.getElementById("firstChk")
+				// 通过name获取后三个复选框对象，放入数组中
+				// var aihaos = document.getElementsByName("aihao")
+				// 注册单击第一个复选框的事件句柄（事件处理函数）
+				// firstChk.onclick = function(){
+				// 	if(firstChk.checked){
+				// 		for(var i = 0; i < aihaos.length; i++){
+				// 			aihaos[i].checked = firstChk.checked
+				// 		}
+				// 	}else{
+				// 		for(var i = 0; i < aihaos.length; i++){
+				// 			aihaos[i].checked = firstChk.checked
+				// 		}
+				// 	}
+				// }
+				
+				
+				// 改良代码
+				var firstChk = document.getElementById("firstChk")
+				var aihaos = document.getElementsByName("aihao")
+				firstChk.onclick = function(){
+					// 第一个复选框的鼠标单击事件本身会确定是选中还是不选中，而后三者的状态随第一个复选框改变即可
+					for(var i = 0; i < aihaos.length; i++){
+						aihaos[i].checked = firstChk.checked
+					}
+				}
+				
+				// 以上代码还可以改良，因为后三个选项应该有自己的鼠标单击事件
+				// 给每一个name="aihao"复选框注册鼠标单击事件
+				// for循环
+				for(var i = 0; i < aihaos.length; i++){
+					// 注册事件
+					aihaos[i].onclick = function(){
+						// 在这里控制第一个复选框的选中状态
+						// 第一个复选框中选还是不选取决于当前点击发生之后，所有的aihao复选框的总数量和总选中数量的关系，若相同，则选中
+						var count = aihaos.length//总数量
+						var checkedcount = 0;//默认选中0
+						
+						for(var i = 0; i < aihaos.length; i++){
+							if(aihaos[i].checked){
+								checkedcount++;
+							}
+						}
+						// 循环结束后，所有的被选中的复选框数量就统计玩了
+						// 然后进行判断
+						// if(count == checkedcount){
+						// 	firstChk.checked = true
+						// }
+						// 可以简化为
+						firstChk.checked = (count == checkedcount)
+						
+					}
+					
+					
+				}
+				
+				
+			}
+		</script>
+		
+		<input type="checkbox" id="firstChk" />
+		<br />
+		<input type="checkbox" name="aihao" value="smoke" />抽烟
+		<br />
+		<input type="checkbox" name="aihao" value="drink" />喝酒
+		<br />
+		<input type="checkbox" name="aihao" value="firehair" />烫头
+		<br />
+	</body>
+</html>

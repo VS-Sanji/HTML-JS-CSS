@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数初步</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			// 调用代码写前面没关系，因为声明会先一步进行
+			sayHello("沾灰");
+		
+			// 函数必须手动调用才会执行
+			// 在JS中，函数声明的优先级较高，在打开网页的时候，会先进行函数的声明
+			function sayHello(username){
+				alert("欢迎" + username + "光临");
+			}
+		
+		
+		</script>
+		<!-- 以这种方式使用函数比较多 -->
+		<input type="button" value="login" onclick="sayHello('zhanhui')" />
+		
+		
+	</body>
+</html>

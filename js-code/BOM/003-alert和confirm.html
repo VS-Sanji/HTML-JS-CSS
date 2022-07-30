@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>alert和confirm</title>
+	</head>
+	<body>
+		
+		<input type="button" value="hello" onclick="sayHello()" />
+		
+		<input type="button" value="del" onclick="del()" />
+		
+		<script type="text/javascript">
+			function sayHello(){
+				// 弹出消息框
+				window.alert("hello")
+			}
+			
+			function del(){
+				// 删除数据之前一定要提示用户是否真的删除，用户点击了确定才表示真的删除
+				// 确认框,confirm()函数有返回值，只有两个值，true/false，对应是/否
+				
+				if(window.confirm("确定删除数据吗？")){
+					alert("数据正在删除...")
+				}
+				
+			}
+		
+		
+		</script>
+
+		
+	</body>
+</html>

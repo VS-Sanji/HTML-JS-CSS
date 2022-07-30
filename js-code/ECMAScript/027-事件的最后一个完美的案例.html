@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件的最后一个完美的案例</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//网页打开，首先将function函数注册到onload事件上，然后当页面元素加载完毕之后，执行这个函数里面的内容
+			window.onload = function(){
+				
+				// 给id=btn1的元素绑定鼠标单击
+				var btn1Elt = document.getElementById("btn1")
+				btn1Elt.onclick = function(){
+					console.log("按钮1单击")
+				}
+				// 以上代码可以连起来写
+				// document.getElementById("btn1").onclick = function(){
+				//		console.log("按钮1单击")
+				//}
+				
+				var btn2Elt = document.getElementById("btn2")
+				btn2Elt.onblur = function(){
+					console.log("失去焦点")
+				}
+				
+			}
+		
+		
+		</script>
+		
+		<input type="button" value="hello" id="btn1" />
+		<input type="button" value="world" id="btn2" />
+		
+
+	</body>
+</html>

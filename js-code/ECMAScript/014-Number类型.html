@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Number类型</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// Number类型
+			// 		1.Number类型属于原始类型
+			// 		2.Number类型都有哪些值
+			// 			-1,0,1,2,3,3.14,2.0,NaN,Infinity,....
+			// 		3.NaN
+			// 			Not a Number,表示不是一个数字
+			// 			但是NaN是一个值,属于Number类型
+			// 		4.什么情况下结果是一个NaN
+			// 			当一个数学表达式的运算结果本应该返回一个数字,但是最终无法返回一个数字的时候,结果是NaN
+			// 		5.Infinity是无穷大,当除数是0的时候,最终计算结果是无穷大
+			// 		6.JS中Number类型就代表了java中的,Byte,Short,Int,Long,Double,Float
+			// 		7.在Number类型这一块,有一个函数叫做:isNaN()函数,这个函数最终返回布尔类型值,返回true表示不是一个数字,
+			// 			返回false表示是一个数字
+			
+			// 			isNaN(数据),这个函数有个特点,他会首先尝试将"数据"装换成数字,
+			// 			如果转换失败了,则结果是true,表示不是数字
+			// 			如果转换成功了,则结果是false,表示是数字
+			// 			isNaN()用来判断"数据"是否是一个数字!!!
+			
+			// 		8.在Number类型这一块还有一个函数叫做:Number()函数,这个函数的作用:可以将不是数字类型的数据转换成数字类型的数据
+			
+			
+			var i = NaN;
+			console.log(typeof i);//"number"
+			
+			// 在java中是不允许出现的,但在JS中,会计算出一个结果来,这个结果是:NaN
+			// JS检测到"/"是一个除号,最终结果肯定是一个数字
+			var result = 100 / "s";
+			console.log(result);//NaN
+			
+			var j = Infinity;
+			console.log(typeof j);//"number"
+			
+			//在java中会报异常,但是在JS中除数可以为0
+			var retValue = 1 / 0;
+			console.log(retValue);//Infinity
+			
+			//在JS中,+可以是字符串连接,也可以是求和,优先级的问题,检测到字符串就做拼接
+			var x = 12 + "里斯";
+			console.log(x);//12里斯
+			
+			function sum(x, y){
+				console.log(x);
+				console.log(y);
+			}
+			sum(12, 3);
+			
+			var i = "123";
+			console.log(isNaN(i));//false,表示是一个数字,isNaN()这个函数会将"123"尝试转成数字,结果是可以转的,所以函数值是false
+			
+			var k = "lisi";
+			console.log(isNaN(k));//true,表示不是一个数字,因为"lisi"确实无法转成数字
+			
+			var l = true;
+			console.log(isNaN(l));//false,是一个数字,true转成数字是1
+			
+			alert(Number("123") + 1);//124,这里"123"是一个字符串,但是经过Number()函数处理,转成了数字123与1进行加法运算
+									// 若没有函数处理,则进行的是字符串拼接操作
+									
+									
+			// 需求:将以下字符串"123.123"转成数字,且只取整数位,注意不会进行四舍五入
+			var num = "123.123";
+			console.log(parseInt(num));//123
+			console.log(parseFloat(num));//123.123
+			
+			var s = "123.123呵呵呵";
+			console.log(parseInt(s));//可以转,结果是:123
+			
+			var s1 = "呵呵234.123";
+			console.log(parseInt(s1));//无法转成数字,结果是:NaN
+			
+			//向上取整
+			//使用JS内置的Math这个数学类,Math数学类中有一个函数叫做ceil()
+			console.log(Math.ceil(123.123));
+			console.log(Math.ceil(123.000));
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS的常用事件</title>
+		<style type="text/css">
+			input{
+				width: 100px;
+				height:50px;
+				border: 1px, aqua, solid;
+			}
+			
+			#mousediv{
+				width: 300px;
+				height: 300px;
+				border: 1px black solid;
+				background-color: #00FFFF;
+			}
+		</style>
+		
+	</head>
+	<body onload="console.log('页面加载完毕了')">//load事件写在body中
+		//load事件：
+		//		1.load事件不是在页面加载过程中触发的
+		//		2.load事件是在页面中所有元素全部加载完毕后才发生
+	
+	
+		<script type="text/javascript">
+			// JS的常用事件
+			// 		(1)blur失去焦点
+			// 		(2)focus获得焦点
+			
+			
+			// 		(4)click鼠标单击
+			// 		(5)dbclick鼠标双击
+			
+			// 		(6)keydown键盘按下
+			// 		(7)keyup键盘弹起
+			
+			// 		(9)mousedown鼠标按下
+			// 		(10)mouseover鼠标经过
+			// 		(11)mousemove鼠标移动
+			// 		(12)mouseout鼠标离开
+			// 		(13)mouseup鼠标弹起
+			
+			// 		(14)reset表单重置
+			// 		(16)submit表单提交
+			
+			// 		(15)select文本被选定
+			// 		(3)change下拉列表选中项改变,或文本框内容改变
+			// 		(8)load页面加载完毕
+			
+			// 提醒:任何一个事件都有对应的事件句柄,事件句柄只需在事件前加on
+		</script>
+		
+		失去焦点事件<input type="text" onblur="console.log('失去焦点')"/>
+		<br />
+		获取焦点事件<input type="text" onfocus="console.log('获取焦点')"/>
+		<br />
+		鼠标单击事件<input type="button" value="hello" onclick="console.log('单击')"/>
+		<br />
+		鼠标双击事件<input type="button" value="world" ondbclick="console.log('双击')"/>
+		<br />
+		键盘按下事件<input type="text" onkeydown="键盘按下"/>
+		<br />
+		键盘弹起事件<input type="text" onkeyup="键盘弹起"/>
+		<br />
+		
+		<br />
+		测试鼠标相关事件
+		<div id="mousediv" onmousedown="console.log('鼠标按下了')"
+							onmouseover="console.log('鼠标经过了')"
+							onmousemove="console.log('鼠标移动了')"
+							onmouseout="console.log('鼠标离开了')"
+							onmouseup="console.log('鼠标弹起了')"></div>
+		<br />
+		<br />
+		测试表单的提交和重置事件
+		<form onsubmit="alert('表单提交了')" onreset="alert('表单重置了')">
+			<input type="submit" value="提交" />
+			<input type="reset" value="重置" />
+		</form>
+		
+		<br />
+		测试文本选中事件
+		<textarea rows="1" cols="10" onselect="console.log('文本被选中了')"></textarea>
+		
+		<br />
+		测试change事件
+		<select onchange="console.log('选项被修改')">
+			<option value="">请选择学历</option>
+			<option value="硕士">硕士</option>
+			<option value="本科">本科</option>
+		</select>
+		
+		<br />
+		
+		
+	</body>
+</html>
+ 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数初步</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 回顾java中的方法：
+			// 		[修饰符列表] 返回值类型 方法名(形式参数列表）{
+			// 			方法体
+			// 		}
+			// 		如：public static int sum(int a,int b){
+			// 			return a + b;
+			// 			}
+			
+			// JavaScript中的函数：
+			// 		函数定义的语法格式
+			// 		function 函数名（形式参数列表）{
+			// 		函数体；
+			// 		}
+			// 		如：function sum(a, b){
+			// 			return a + b;
+			// 			}
+			// 		函数名：sum
+			// 		形式参数列表是：a和b
+			// JS中的函数返回值类型是不需要指定的，因为可以返回任何类型的值，不需要指定
+			
+			// 关于JS的调试：
+			// 		首选方案是：alert(),在程序的某个位置先使用alert弹出某个变量的值，看看是否是我们需要的
+			// 		通过alert可以调试JS代码
+			
+			// 		另一种方案是：采用浏览器自带的调试插件，F12
+			// 			F12这个插件中比较重要的面板
+			// 				控制台
+			// 				查看器
+			// 				网络
+			// 				掌握以上三个！！！！！！！！！！！
+			
+			
+			// 函数必须调用才能执行
+			function sum(a, b){
+				alert("sum函数执行啦~~~~")
+			}
+			
+			// 函数调用			
+			sum();//a, b的值：undefined,undefined
+			sum(1);//a, b的值：1,undefined
+			sum(1,2);//a, b的值：1,2
+			sum(1,2,3);//a, b的值：1,2(3是无效的)
+			
+			// 函数的另一种定义方式
+			mysum = function(a, b){
+				return a + b;
+			}
+			
+			// 调用函数
+			var result = mysum(23, 12);
+			alert(result);
+			
+			function sayHello(username){
+				alert("欢迎" + username + "登录");
+			}
+		
+			//sayHello1函数
+			function sayHello1(value){
+				alert("欢迎" + value + "使用本网站");
+			}
+		
+		
+		
+		</script>
+		
+		<!-- 在事件句柄中调用sayHello函数 -->
+		<input type="button" value="hello" onclick="sayHello1('张三')" />
+		
+		
+		
+	</body>
+</html>

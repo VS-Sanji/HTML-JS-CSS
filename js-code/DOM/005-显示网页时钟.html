@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>显示网页时钟</title>
+	</head>
+	<body>
+		
+		<div id="timediv"></div>
+		
+		<input type="button" id="displayTimeBtn" value="显示系统当前事件" />
+		<input type="button" id="stopTimeBtn" value="时间停止" />
+		
+		<script type="text/javascript">
+			// 以下代码只能获取某一时刻的时间，我们还可以让时间动起来
+			// window.onload = function(){
+			// 	document.getElementById("displayTimeBtn").onclick = function(){
+			// 		// 获取系统当前事件，把时间显示到div中
+			// 		var nowTime = new Date()
+			// 		// 显示到div中
+			// 		document.getElementById("timediv").innerHTML = nowTime.toLocaleString()
+					
+			// 	}
+				
+			// }
+			
+			
+			window.onload = function(){				
+				document.getElementById("displayTimeBtn").onclick = function(){
+					// 设置间隔多少时间执行一次displayTime()函数，这里设置为1s
+					// window.setInterval()函数来设置，Interval是间隔的意思，这个函数还有一个返回值，这个返回值可以用来取消周期性调用
+					// v是全局变量，且手动赋值
+					v = window.setInterval("displayTime()",1000)
+				}
+				
+				// 取消周期性调用
+				document.getElementById("stopTimeBtn").onclick = function(){
+					window.clearInterval(v)
+				}
+			}
+			// 这个函数要写在页面加载事件句柄之外，得先加载出这个函数才能调用
+			function displayTime(){
+				var nowTime = new Date()
+				document.getElementById("timediv").innerHTML = nowTime.toLocaleString()
+			}
+			
+		
+		</script>
+		
+	</body>
+</html>

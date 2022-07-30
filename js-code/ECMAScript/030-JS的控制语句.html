@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS的控制语句</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 1.JS中的控制语句，和java相同，JS中除了java的控制语句之外，还有一些特别的
+			// 		选择结构：
+			// 			if语句
+			// 			switch语句
+			// 		循环结构：
+			// 			for
+			// 			while
+			// 			do...while
+			// 		转向语句：
+			// 			break
+			// 			continue
+			// 			return
+			// 2.JS有哪些特殊的语句呢
+			// 		了解，不用掌握：
+			// 			for...in 语句
+			// 			with	语句
+			
+			for(var i = 0; i < 10; i++){
+				console.log(i)
+			}
+			
+			var username = "zhanhui"
+			if(username){	//Boolean()函数
+				console.log("welcome" + username)
+			}else{
+				console.log("用户名不能为空")
+			}
+			
+			// 数组
+			// JS中的数组对象创建的时候使用的是：中括号
+			// JS的数组中数据的类型随意，可以不一致
+			var arr = [1, false, 3, "sdfdf", 4, undefined]
+			var arr1 = [2,false,true,"zhanhui",undefined,NaN,Infinity]
+			
+			// 对数组遍历
+			for(var i = 0; i < arr.length; i++){//数组有length属性
+				console.log(arr[i])
+			}
+		
+			// for...in语句
+			for(var fsdfsd in arr){
+				// fsdfsd是数组的下标
+				console.log(arr[fsdfsd])
+			}
+			for(var index in arr1){
+				//index是下标
+				console.log(arr1[index])
+			}
+			
+			// for...in语句还可以取对象的属性值
+			Employee = function(empno,ename){
+				this.empno = empno
+				this.ename = ename
+				
+			}
+			
+			var e = new Employee(123,"lisi")
+			console.log(e.empno + "," + e.ename)
+			console.log(e["empno"] + "," + e["ename"])
+			
+			for(var asdasd in e ){	//e是JS对象的话，asdasd就是对象的属性名，并且属性名是字符串
+				console.log(e[asdasd])//只能用这种方式，因为asdasd是个字符串
+				//console.log(e.asdasd)		这种写法不对，在这里，e.asdasd就相当于e."字符串"，显然是不行的
+			}
+
+			//再写个例子
+			Student = function(name,id){
+				this.name = name;
+				this.id = id;
+			}
+			var stu = new Student("zhanhui",3);
+			console.log(stu.name);
+			console.log(stu.id);
+			for(var property in stu){
+				console.log(stu[property])
+			}
+			
+			
+			var x = new Employee(1233,"li")
+			// console.log(x.empno + "," + x.ename)
+			//with语句,函数体内的相关属性，都是x的，指定一个对象的
+			with(x){
+				console.log(empno + "," + ename)
+				console.log(empno + "," + ename)
+				console.log(empno + "," + ename)
+				console.log(empno + "," + ename)
+				console.log(empno + "," + ename)
+				console.log(empno + "," + ename)
+				console.log(empno + "," + ename)
+			}
+		</script>
+		
+		
+	</body>
+</html>

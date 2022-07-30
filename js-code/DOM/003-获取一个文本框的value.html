@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>获取一个文本框的value</title>
+	</head>
+	<body>
+		用户名：<input type="text" id="username"/>
+		<input type="button" value="获取用户名" id="btn" />
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("btn").onclick = function(){
+					// 获取文本框对象
+					var usernameElt  = document.getElementById("username")
+					// 获取value
+					var username = usernameElt.value//文本框的value属性用来获取用户填写的信息				
+					console.log(username)
+				}
+			}
+			
+		
+		
+		
+		</script>
+		
+	</body>
+</html>

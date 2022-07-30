@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>拼接html的方式，设置table的tbody</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+		// 假设这是从java发送过来的json格式的字符串信息
+		var fromJava = "{\"total\" : 3,\"students\" : [{\"name\" : \"zhangsan\",\"age\" : 23},{\"name\" : \"zhang\",\"age\" : 12},{\"name\" : \"san\",\"age\" : 33}]}"
+		
+			window.onload = function(){
+				document.getElementById("btn").onclick = function(){
+					// 解析上面的json格式的字符串，将解析出来的数据放入tbody中
+					// 转化json对象
+					window.eval("var stu = " + fromJava)
+					// 给一个空字符串，用来拼接html
+					var html = ""
+					for(var i = 0; i < stu.students.length; i++){
+						// 标签加引号
+						html += "<tr>"
+						html += "<td>"+(i+1)+"</td>"
+						html +=	"<td>"+stu.students[i].name+"</td>"
+						html +=	"<td>"+stu.students[i].age+"</td>"
+						html += "</tr>"
+					}
+					
+					// 将拼好的html语句进行解析执行并且显示到tbody中
+					document.getElementById("tbody").innerHTML = html
+					// 总记录条数
+					document.getElementById("stuNumber").innerHTML = stu.total
+				}
+			}
+		</script>
+		
+		<input type="button" id="btn" value="显示学生信息"/>
+		
+		<table border="1px" width="50%">
+			<tr>
+				<th>编号</th>
+				<th>学生姓名</th>
+				<th>学生年龄</th>
+			</tr>
+			<tbody id="tbody">
+				<!-- 以下的数据是没有的，需要从java发送过来，然后通过解析成json对象获取数据 -->
+<!-- 			<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>李四</td>
+					<td>23</td>
+				</tr> -->
+			</tbody>
+			总记录条数：<span id="stuNumber">0</span>
+		</table>
+		
+	</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单验证</title>
+		
+		<style type="text/css">
+			span{
+				color: rgb(175, 152, 152);
+				font-size: 12;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 1.用户名不能为空
+			// 2.用户名必须在6~14位之间
+			// 3.用户名只能由数字和字母组成，不能含有其他符号（正则表达式）
+			// 4.密码和确认密码一致
+			// 5.统一失去焦点验证
+			// 6.错误提示信息统一在span标签中提示，并且要求字体12号，红色
+			// 7.文本框再次获得焦点后，清空错误提示信息
+			// 8.最终表单中所有项均合法方可提交
+			
+			
+			
+			
+			window.onload = function(){
+				
+				document.getElementById("username").onblur = function(){
+					// 这行代码要放在function里面，如果放在外面，页面加载完，就有一个空值了，要在失去焦点后获取值，放在函数里
+					var username = document.getElementById("username").value;
+					// 去除前后空白
+					username = username.trim()
+					
+					if(username == ""){
+						document.getElementById("unspan").innerHTML = "用户名不能为空！！！"
+					}else{
+						if(username.length < 6 || username.length > 14){
+							document.getElementById("unspan").innerHTML = "用户名长度要求在[6-14]位！！！"
+						}else{
+							var regExp = /^[0-9a-zA-Z]+$/
+							if(regExp.test(username)){
+								document.getElementById("unspan").innerHTML = ""
+							}else{
+								document.getElementById("unspan").innerHTML = "用户名不合法！！！"
+							}
+						}
+					}
+				}
+				document.getElementById("username").onfocus = function(){
+					document.getElementById("unspan").innerHTML = ""
+				}
+
+				
+				
+				document.getElementById("confirmpwd").onblur = function(){
+					var password = document.getElementById("password").value;
+					var confirmpwd = document.getElementById("confirmpwd").value;
+					
+					if(password == confirmpwd){
+						document.getElementById("cfspan").innerHTML = ""
+					}else{
+						document.getElementById("cfspan").innerHTML = "密码验证失败！！！"
+					}
+				}
+				confirmpwd.onfocus = function(){
+					document.getElementById("cfspan").innerHTML = ""
+				}
+				
+				document.getElementById("regbtn").onclick = function(){
+					// 代码层面主动让节点获取焦点和失去焦点，这样会触发上述函数进行验证
+					// 先获取才能失去
+					document.getElementById("username").focus()//触发文本框的获取焦点事件
+					document.getElementById("username").blur()//触发文本框的失去焦点事件，那么会触发回调函数去验证用户名
+					document.getElementById("confirmpwd").focus()
+					document.getElementById("confirmpwd").blur()
+					
+					// 以上代码会导致用户名和密码的验证，而能够提交表单时则对应的是验证成功，此时的span标签应该是空，所以可以以此为是否提交表单的判断条件
+					if(document.getElementById("unspan") == "" && document.getElementById("cfspan") == ""){
+						document.getElementById("form").submit()
+					}
+					
+					
+					
+				}
+				
+			}
+			
+			
+		</script>
+		
+		<form action="http://192.168.145.2:8080/crm/login" id="form">
+			
+			用户名：<input type="text" name="username" id="username" /><span id="unspan"></span>
+			<br>
+			
+			密码：<input type="password" name="password" id="password" />
+			<br>
+			<!-- 确认密码不需要提交所以不用给name属性 -->
+			确认密码：<input type="password" id="confirmpwd" /><span id="cfspan" ></span>
+			<br>
+			
+			<!-- type不设置为submit，因为需要所有项都合法才能提交，不能点击了就直接提交，设置为button，然后JS代码中进行提交 -->
+			<input type="button" id="regbtn" value="注册" />
+			
+		</form>
+		
+	</body>
+</html>

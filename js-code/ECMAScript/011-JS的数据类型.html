@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS的数据类型</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 关于JS的数据类型？
+			// 		1.JS中声明变量不需要指定变量的数据类型，为什么是要学习数据类型呢？
+			// 			如：var i = 100；var d = 3.14;
+			// 			在JS中学习数据类型也不是为了声明变量，是为了理解JS程序的底层原理
+			// 			我们起码要知道100是什么类型，3.14是什么类型，怎么存储的。。。。
+			// 		2.ES6之前JS的数据类型包括6种：
+			// 			Undefined
+			// 			Number
+			// 			String
+			// 			Boolean
+			// 			Null
+			// 			Object
+			
+			// 			其中，Undefined、Number、String、Boolean、Null都属于原始类型（基本数据类型）
+			// 			其中，Object属于引用数据类型（对象类型）
+			
+			// 		3.在ES6之后引入了其他新的类型,知道即可
+			// 			Symbol
+			// 			BigInt
+			// 			注意:ES6之后是8种类型,ES6之前是6种类型
+			
+			// 		4.typeof运算符(非常重要*****)
+			// 			typeof运算符可以在JS代码运行过程当中,动态获取变量的数据类型
+			// 			typeof运算符的语法格式: typeof 变量名
+			// 			typeof运算符的运算结果总是以下6个字符串之一
+			// 			"undefined"
+			// 			"number"
+			// 			"string"
+			// 			"boolean"
+			// 			"object"
+			// 			"function"
+			// 			并且以上6个字符串都是全部小写的
+		
+			// 		5.在JS中判断两个字符串是否相等,应该使用 "==",JS中没有equals函数!!!
+			
+			 
+		
+		// sum函数的作用是计算两个数字的和,要求x和y都必须是数字类型,如果不是数字类型应该提示错误信息
+			function sum(x, y){
+				// 有一段代码可以动态获取x和y变量的数据类型
+				if(typeof x == "number" && typeof y == "number"){
+					// 求和结果
+					alert(x + y);
+				}else{
+					// 程序能走到这,说明数据有问题,无法进行计算,不都是数字
+					alert("参数必须都是数字才能求和");
+				}
+			}
+			
+			sum(12, 3);
+		
+			// i变量声明,但是没有赋值,系统默认赋值undefined
+			var i;
+			// console.log()将信息输出到控制台,类似于java中的System.out.println();
+			console.log(typeof i);//i变量的数据类型属于Undefined类型,所以typeof运算符的结果是: "undefined"
+			
+			var j = 1;
+			console.log(typeof j);//j变量的数据类型属于Number类型,所以typeof运算符的结果是: "number"
+		
+			var username = "lisi";
+			console.log(typeof username);//username变量的数据类型属于String类型,所以typeof运算符的结果是: "string"
+			
+			var sex = true;
+			console.log(typeof sex);//sex变量的数据类型属于Boolean类型,所以typeof运算符的结果是: "boolean"
+			
+			var newObject = new Object;
+			console.log(typeof newObject);//newObject变量的数据类型属于Object类型,所以typeof运算符的结果是: "object"
+			
+			var wu = null;
+			console.log(typeof wu);//一定注意:wu变量的数据类型属于Null类型,typeof运算符的结果是: "object"
+		
+			function multiple(a, b){
+				return a * b;
+			}
+			console.log(typeof multiple);//multiple是一个函数,所以typeof运算符的结果是: "function"
+			
+		</script>
+		
+		
+	</body>
+</html>

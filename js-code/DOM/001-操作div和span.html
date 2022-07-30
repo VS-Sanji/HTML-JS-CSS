@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>操作div和span:innerHTML和innerText属性</title>
+		<style type="text/css">
+			#div1{
+				background-color: rgb(24, 78, 177);
+				width: 200px;
+				height: 50px;
+				border: 1px black solid;
+			}
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		<input type="button" id="btn" value="设置div中的内容"/>
+		
+		<input type="button" id="spbtn" value="设置span中的内容" />
+		
+		<script type="text/javascript">
+			document.getElementById("btn").onclick = function(){
+				// 设置div中的内容
+				var divElt = document.getElementById("div1")
+				// 通过元素的innerHTML属性来设置内部的内容
+				// innerHTML是属性，不是方法
+				// innerHTML属性会将后面的字符串当作一段HTML代码解释并执行
+				// 这个会放到div中：
+				divElt.innerHTML = "<font color = 'red'>用户名不能为空</font>"
+				
+				// innerText也可以设置元素当中的内容，和innerHTML有什么区别吗
+				// innerText后面的字符串即使是一个HTML代码，也不会当作HTML执行，只是看作普通文本
+				// divElt.innerText = "<font color = 'red'>用户名不能为空</font>"	
+				
+			}
+		
+			document.getElementById("spbtn").onclick = function(){
+				
+				var spanElt = document.getElementById("span1")
+				spanElt.innerHTML = "<a href='http://www.baidu.com'>百度</a>"
+				
+			}
+		
+		
+		
+		</script>
+		
+		<!-- div独占一行 -->
+		<div id="div1"></div>
+		
+		<!-- span的大小会随着span中的内容多少而变化 -->
+		<span id="span1"></span>
+	</body>
+</html>

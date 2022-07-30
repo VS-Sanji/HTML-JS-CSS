@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>获取下拉列表选中项的value</title>
+	</head>
+	<body>
+		
+		<!-- 这里的 this 表示的是当前这个下拉列表对象 -->
+		<select id="province" onchange="alert(this.value)">
+			<option value="">请选择省份</option>
+			<option value="jiangxi">江西</option>
+			<option value="zhejiang">浙江</option>
+			<option value="jiangsu">江苏</option>
+			<option value="shanghai">上海</option>
+			<option value="guangdong">广东</option>
+		</select>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("province2").onchange = function(){
+					// 这里的this就代表当前发生change事件的节点对象
+					alert(this.value)
+					
+				}
+				
+				
+			}
+		
+		
+		</script>
+		<select id="province2">
+			<option value="">请选择省份</option>
+			<option value="jiangxi">江西</option>
+			<option value="zhejiang">浙江</option>
+			<option value="jiangsu">江苏</option>
+			<option value="shanghai">上海</option>
+			<option value="guangdong">广东</option>
+		</select>
+		
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			// 设计一个JSON格式的数据可以表示全班人数和每个学生信息
+			var stu = {
+				"tatol" : 3,
+				"data" : [{"name" : "zhansan","age" : 34},{"name" : "zhan","age" : 4},{"name" : "san","age" : 3}]
+			}
+			
+			console.log(stu.tatol)
+			
+			// JSON很容易解析，一顿“点”就行了
+			for(var i = 0; i < stu.data.length; i++){
+				console.log(stu.data[i].name + " " + stu.data[i].age)
+			}
+		</script>
+		
+	</body>
+</html>
